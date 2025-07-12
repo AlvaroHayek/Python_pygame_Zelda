@@ -11,6 +11,7 @@ class Game:
         
     def run(self):
         while True:
+            pygame.display.set_caption('Zelda like game')
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
