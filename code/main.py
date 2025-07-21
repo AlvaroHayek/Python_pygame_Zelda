@@ -11,6 +11,8 @@ class Game:
         pygame.display.set_caption('Zelda like game')
         self.clock = pygame.time.Clock()
         
+        self.level = Level()
+        
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -19,6 +21,7 @@ class Game:
                     sys.exit()
                     
             self.screen.fill('black')
+            self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)
             
