@@ -22,7 +22,7 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'p':
-                    Tile((x,y),[self.visible_sprites])
+                    Tile((x,y),[self.visible_sprites], (2,2,20,20))
                 
     
     def run(self):
