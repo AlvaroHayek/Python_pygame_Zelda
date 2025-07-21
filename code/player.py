@@ -20,6 +20,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 print("player is saved")
         
+        
         self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png').convert_alpha()
         self.rect = self.crop_image.get_rect(topleft = pos)
         
