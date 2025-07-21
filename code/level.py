@@ -23,6 +23,8 @@ class Level:
                 y = row_index * TILESIZE
                 if col == 'x':
                     Tile((x,y),[self.visible_sprites], (480,385,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png")
+                if col == 'p':
+                    Player((x,y),[self.visible_sprites], (0,0,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png")
                 
     
     def run(self):
