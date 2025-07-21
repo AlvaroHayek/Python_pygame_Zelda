@@ -4,6 +4,6 @@ from settings import *
 class Tile(pygame.sprite.Sprite):
     def __init__(self,pos,groups):
         super().__init__(groups)
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Items/Resource/Rock.png').convert_alpha()
-        self.rect = self.image.get_rect(top_left = pos)
+        self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png').convert_alpha()
+        self.rect = self.image.get_rect(topleft = pos)
         
