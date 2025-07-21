@@ -11,20 +11,22 @@ class Level:
         
         # sprite group setup
         self.visible_sprites = pygame.sprite.Group()
-        self.obstacles_sprites = pygame.sprite.Group()
+        self.obstacle_sprites = pygame.sprite.Group()
         
         # sprite setup
         self.create_map()
         
     def create_map(self):
+        tile_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png"
+        player_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png"
         for row_index, row in enumerate(WORLD_MAP):
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites], (480,385,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png")
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path)
                 if col == 'p':
-                    Player((x,y),[self.visible_sprites], (0,0,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png")
+                    Player((x,y),[self.visible_sprites], (0,0,64,64), player_save_path)
                 
     
     def run(self):
