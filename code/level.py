@@ -21,8 +21,8 @@ class Level:
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
-                if col == 'p':
-                    Tile((x,y),[self.visible_sprites], (2,2,20,20))
+                if col == 'x':
+                    Tile((x,y),[self.visible_sprites], (230,240,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png")
                 
     
     def run(self):
