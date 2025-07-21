@@ -22,7 +22,7 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites], (230,240,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png")
+                    Tile((x,y),[self.visible_sprites], (480,385,64,64),"../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png")
                 
     
     def run(self):

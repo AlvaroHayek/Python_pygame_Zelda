@@ -7,8 +7,11 @@ class Tile(pygame.sprite.Sprite):
         super().__init__(groups)
         self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png').convert_alpha()
         #self.rect = self.image.get_rect(topleft = pos)
+        self.original_size = self.image.get_size()
+        new_size = (self.original_size[0] * 2, self.original_size[1] * 2)
+        self.scaled_image = pygame.transform.scale(self.image, new_size)
         self.crop_rect = pygame.Rect(crop_rect)
-        self.crop_image = self.image.subsurface(self.crop_rect).copy()
+        self.crop_image = self.scaled_image.subsurface(self.crop_rect).copy()
         
         if save_path:
             pygame.image.save(self.crop_image, save_path)
