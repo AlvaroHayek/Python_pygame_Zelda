@@ -33,3 +33,16 @@ class Player(pygame.sprite.Sprite):
             self.direction.y = -1
         if keys[pygame.K_DOWN]:
             self.direction.y = 1
+        else:
+            self.direction.y = 0
+            
+        if keys[pygame.K_RIGHT]:
+            self.direction.x = 1
+        if keys[pygame.K_LEFT]:
+            self.direction.x = -1
+        else:
+            self.direction.x = 0
+        
+    def update(self):
+        self.input()
+    
