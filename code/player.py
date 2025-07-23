@@ -28,7 +28,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         
         self.obstacle_sprites = obstacle_sprites
-        
+    
     def input(self):
         keys = pygame.key.get_pressed()
         
@@ -45,7 +45,17 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = -1
         else:
             self.direction.x = 0
+    
+    def collision(self, direction):
+        if direction == 'horizontal':
+            for sprite in self.obstacle_sprites:
+                if sprite.rect.colliderect(self.rect):
+                    if self.direction.x > 0: # moving right
+                        self.rect.right = sprite.rect.left
         
+        if direction == 'vertical':
+            pass
+     
     def move(self, speed):
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
