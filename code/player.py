@@ -52,9 +52,16 @@ class Player(pygame.sprite.Sprite):
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.x > 0: # moving right
                         self.rect.right = sprite.rect.left
+                    if self.direction.x < 0: #moving left
+                        self.rect.left = sprite.rect.left
         
         if direction == 'vertical':
-            pass
+            for sprite in self.obstacle_sprites:
+                if sprite.rect.colliderect(self.rect):
+                    if self.direction.x > 0: # moving right
+                        self.rect.right = sprite.rect.left
+                    if self.direction.x < 0: #moving left
+                        self.rect.left = sprite.rect.left
      
     def move(self, speed):
         if self.direction.magnitude() != 0:
