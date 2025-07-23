@@ -3,7 +3,7 @@ import pygame
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,groups, crop_rect, save_path=None):
+    def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None):
         super().__init__(groups)
         self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/Idle.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
