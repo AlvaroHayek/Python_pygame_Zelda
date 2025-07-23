@@ -27,7 +27,7 @@ class Level:
                 if col == 'x':
                     Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path)
                 if col == 'p':
-                    self.player = Player((x,y),[self.visible_sprites], (0,0,64,64), player_save_path)
+                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path)
                 
     
     def run(self):

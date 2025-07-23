@@ -27,6 +27,8 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2()
         self.speed = 5
         
+        self.obstacle_sprites = obstacle_sprites
+        
     def input(self):
         keys = pygame.key.get_pressed()
         
