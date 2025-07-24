@@ -23,6 +23,7 @@ class Player(pygame.sprite.Sprite):
         
         self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png').convert_alpha()
         self.rect = self.crop_image.get_rect(topleft = pos)
+        self.hitbox = self.rect.inflate(0,-26)
         
         self.direction = pygame.math.Vector2()
         self.speed = 5
@@ -50,12 +51,15 @@ class Player(pygame.sprite.Sprite):
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
             
-        self.rect.x += self.direction.x * speed
+        #self.rect.x += self.direction.x * speed
+        self.hitbox.x += self.direction.x * speed
         self.collision('horizontal')
-        self.rect.y += self.direction.y * speed
+        #self.rect.y += self.direction.y * speed
+        self.hitbox.y += self.direction.y * speed
         self.collision('vertical')
         #self.rect.center += self.direction * speed
-    
+        self.rect.center = self.hitbox.center
+        
     def collision(self, direction):
         if direction == 'horizontal':
             for sprite in self.obstacle_sprites:
