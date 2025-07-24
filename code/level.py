@@ -45,7 +45,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         
         # creating the floor
-        floor_save_path = '../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/tilemap.png'
+        floor_save_path = '../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/tilemap_v02.png'
         self.floor_surf = pygame.image.load(floor_save_path)
         self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
         
