@@ -22,5 +22,6 @@ class Tile(pygame.sprite.Sprite):
         
         self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png').convert_alpha()
         self.rect = self.crop_image.get_rect(topleft = pos)
+        self.hitbox = self.rect.inflate(0,-10)
         
         
