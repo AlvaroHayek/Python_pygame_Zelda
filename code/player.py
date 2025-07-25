@@ -4,12 +4,13 @@ from PIL import Image
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None):
+    def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
         
         
-        if save_path is None:
+        #if save_path is None:
+        if ntimes > 0:
             def clean_and_load_png(filename, png_path):
                 img = Image.open(png_path)
                 img.save(filename, icc_profile=None)

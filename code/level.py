@@ -23,17 +23,24 @@ class Level:
         player_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png"
         water_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png"
         #water_image = Water([self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path)
+        nuptimes = 1
+        nuxtimes = 1
+        nuwtimes = 1
         for row_index, row in enumerate(WORLD_MAP):
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path)
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path, nuxtimes)
+                    nuxtimes=0
                 if col == 'w':
-                    Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path)
+                    Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path,nuwtimes)
+                    nuwtimes=0
                     #Water.insert(x,y, water_image)
                 if col == 'p':
-                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path)
+                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
+                    nuptimes = 0
+                    
 
                 
     
