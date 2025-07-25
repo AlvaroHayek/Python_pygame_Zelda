@@ -23,13 +23,13 @@ class Water(pygame.sprite.Sprite):
         self.crop_image = self.scaled_image.subsurface(self.crop_rect).copy()
         
         if save_path:
-            pygame.image.save(self.crop_image, save_path)
             if os.path.exists(save_path):
+                pygame.image.save(self.crop_image, save_path)
                 print("water exists")
             else:
                 print("water is saved")
         
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png').convert_alpha()
+        self.image = clean_and_load_png('WaterCropped2.png','../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png')
         self.rect = self.crop_image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-10)
     

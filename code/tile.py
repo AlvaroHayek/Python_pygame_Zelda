@@ -1,5 +1,6 @@
 import os
 import pygame
+from PIL import Image
 from settings import *
 
 class Tile(pygame.sprite.Sprite):
@@ -7,7 +8,13 @@ class Tile(pygame.sprite.Sprite):
         super().__init__(groups)
         #self.sprite_type = sprite_type
         #self.image = surface
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png').convert_alpha()
+        
+        def clean_and_load_png(filename, png_path):
+            img = Image.open(png_path)
+            img.save(filename, icc_profile=None)
+            return pygame.image.load(filename).convert_alpha()
+        
+        self.image = clean_and_load_png('TilesetNature2.png','../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png')
         #self.rect = self.image.get_rect(topleft = pos)
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 2, self.original_size[1] * 2)
