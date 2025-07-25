@@ -14,7 +14,7 @@ class Tile(pygame.sprite.Sprite):
             img.save(filename, icc_profile=None)
             return pygame.image.load(filename).convert_alpha()
         
-        self.image = clean_and_load_png('TilesetNature2.png','../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png')
+        self.image = clean_and_load_png('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png','../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png')
         #self.rect = self.image.get_rect(topleft = pos)
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 2, self.original_size[1] * 2)
