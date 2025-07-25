@@ -23,8 +23,8 @@ class Water(pygame.sprite.Sprite):
         self.crop_image = self.scaled_image.subsurface(self.crop_rect).copy()
         
         if save_path:
+            pygame.image.save(self.crop_image, save_path)
             if os.path.exists(save_path):
-                pygame.image.save(self.crop_image, save_path)
                 print("water exists")
             else:
                 print("water is saved")
