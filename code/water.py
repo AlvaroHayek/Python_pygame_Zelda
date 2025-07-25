@@ -8,7 +8,7 @@ class Water(pygame.sprite.Sprite):
         super().__init__(groups)
         
         def clean_and_load_png(filename, png_path):
-            img = Image.open(png_path).convert("RGBA").copy()
+            img = Image.open(png_path)
             img.save(filename, icc_profile=None)
             return pygame.image.load(filename).convert_alpha()
         
