@@ -6,17 +6,14 @@ from settings import *
 class Water(pygame.sprite.Sprite):
     def __init__(self,pos,groups, crop_rect, save_path=None):
         super().__init__(groups)
-        #self.sprite_type = sprite_type
-        #self.image = surface
         
         def clean_and_load_png(filename, png_path):
-            img = Image.open(png_path).convert("RGBA")
+            img = Image.open(png_path).convert("RGBA").copy()
             img.save(filename, icc_profile=None)
-            img.close()
             return pygame.image.load(filename).convert_alpha()
         
         self.image = clean_and_load_png('TilesetWater.png','../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetWater.png')
-        #self.rect = self.image.get_rect(topleft = pos)
+
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 2.8, self.original_size[1] * 2.8)
         self.scaled_image = pygame.transform.scale(self.image, new_size)
