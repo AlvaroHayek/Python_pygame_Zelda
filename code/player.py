@@ -1,11 +1,19 @@
 import os
 import pygame
+from PIL import Image
 from settings import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None):
         super().__init__(groups)
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/Idle.png').convert_alpha()
+        
+        def clean_and_load_png(filename, png_path):
+            img = Image.open(png_path)
+            img.save(filename, icc_profile=None)
+            return pygame.image.load(filename).convert_alpha()
+        
+        
+        self.image = clean_and_load_png('Idle.png','../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/Idle.png')
         self.rect = self.image.get_rect(topleft = pos)
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
