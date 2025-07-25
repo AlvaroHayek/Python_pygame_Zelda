@@ -28,7 +28,8 @@ class Water(pygame.sprite.Sprite):
                 print("water is saved")
         
         self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png').convert_alpha()
-        self.rect = self.crop_image.get_rect(topleft = pos)
+        
+        self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-10)
     
        
