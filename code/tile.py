@@ -6,8 +6,8 @@ class Tile(pygame.sprite.Sprite):
     def __init__(self,pos,groups, crop_rect, sprite_type, save_path=None, surface = pygame.Surface((TILESIZE, TILESIZE))):
         super().__init__(groups)
         self.sprite_type = sprite_type
-        self.image = surface
-        #self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png').convert_alpha()
+        #self.image = surface
+        self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png').convert_alpha()
         #self.rect = self.image.get_rect(topleft = pos)
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 2, self.original_size[1] * 2)
