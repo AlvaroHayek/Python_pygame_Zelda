@@ -46,7 +46,9 @@ class Player(pygame.sprite.Sprite):
     
     def import_player_assets(self):
         character_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/"
-        self.animations = {'up': [],}
+        self.animations = {'up': [],'down': [],'left': [],'right': [],
+                           'right_idle': [],'left_idle': [],'up_idle': [],'down_idle': [],
+                           'right_attack': [],'left_attack': [],'up_attack': [],'down_attack': []}
     def input(self):
         keys = pygame.key.get_pressed()
         
