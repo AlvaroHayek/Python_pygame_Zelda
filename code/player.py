@@ -35,6 +35,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-26)
         
+        # graphics setup
+        self.import_player_assets()
+        
         # movement
         self.direction = pygame.math.Vector2()
         self.speed = 5
@@ -49,6 +52,10 @@ class Player(pygame.sprite.Sprite):
         self.animations = {'up': [],'down': [],'left': [],'right': [],
                            'right_idle': [],'left_idle': [],'up_idle': [],'down_idle': [],
                            'right_attack': [],'left_attack': [],'up_attack': [],'down_attack': []}
+        
+        for animation in self.animations.keys():
+            print(animation)
+        
     def input(self):
         keys = pygame.key.get_pressed()
         
