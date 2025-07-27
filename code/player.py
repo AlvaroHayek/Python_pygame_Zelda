@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
                 print("player is saved")
         
         
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png').convert_alpha()
+        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/up.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-26)
         

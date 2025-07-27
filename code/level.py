@@ -20,7 +20,7 @@ class Level:
         
     def create_map(self):
         tile_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png"
-        player_save_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png"
+        player_save_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/up.png"
         water_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png"
         #water_image = Water([self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path)
         nuptimes = 1
@@ -38,7 +38,7 @@ class Level:
                     nuwtimes=0
                     #Water.insert(x,y, water_image)
                 if col == 'p':
-                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
+                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (64,0,64,256), player_save_path, nuptimes)
                     nuptimes = 0
                     
 
