@@ -7,7 +7,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
-        
+        self.idle_animation = True
         
         #if save_path is None:
         if ntimes > 0:
@@ -96,16 +96,19 @@ class Player(pygame.sprite.Sprite):
             print('magic')
     
     def get_status(self):
-        
         # idle status
         if self.direction.x == 0 and self.direction.y == 0:
+            self.idle_animation = True
             if not 'idle' in self.status and not 'attack' in self.status:
+                self.walking_animation = False
                 self.status = self.status + '_idle'
         
         if self.attacking:
+            #self.idle_animation = False
             self.direction.x = 0
             self.direction.y = 0
             if not 'attack' in self.status:
+                self.idle_animation = False
                 if 'idle' in self.status:
                     self.status = self.status.replace('_idle','_attack')
                 else:
@@ -113,6 +116,7 @@ class Player(pygame.sprite.Sprite):
         else:
             if 'attack' in self.status:
                 self.status = self.status.replace('_attack','')
+            self.idle_animation = False
     
     def move(self, speed):
         if self.direction.magnitude() != 0:
@@ -153,8 +157,18 @@ class Player(pygame.sprite.Sprite):
     
     def animate(self):
         animation = self.animations[self.status]
-        self.image = pygame.image.load(animation).convert_alpha()
-        print (len(animation))
+        if self.idle_animation:
+            self.image = pygame.image.load(animation).convert_alpha()
+            print (len(animation))
+        else:
+            self.num_frames = 4
+            self.image = pygame.image.load(animation).convert_alpha()
+            self.frame_height = self.image.get_height() // 4
+            print(self.frame_height)
+            self.crop_rect = self.image.get_rect()
+            print(self.crop_rect)
+            self.image = self.image.subsurface(self.crop_rect).copy()
+            print('walking')
         # loop over the frame index
         self.frame_index += self.animation_speed
         if self.frame_index >= len(animation):
