@@ -46,6 +46,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         self.attacking = False
         self.attack_cooldown = 400
+        self.walking_time = None
         self.attack_time = None
         
         self.obstacle_sprites = obstacle_sprites
@@ -162,9 +163,10 @@ class Player(pygame.sprite.Sprite):
         if self.image_rect.height == 256:
             self.num_frames = 4
             self.frame_height = self.image.get_height() // 4
-            self.crop_rect = pygame.Rect(0,64,64,64)
+            self.crop_rect = pygame.Rect(0,192,64,64)
             self.image = self.image.subsurface(self.crop_rect).copy()
             print("is walking")
+            print(len(animation))
 
         # loop over the frame index
         self.frame_index += self.animation_speed
