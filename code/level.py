@@ -20,7 +20,7 @@ class Level:
         
     def create_map(self):
         tile_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png"
-        player_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png"
+        player_save_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png"
         water_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Water_cropped.png"
         #water_image = Water([self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path)
         nuptimes = 1

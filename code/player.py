@@ -17,7 +17,7 @@ class Player(pygame.sprite.Sprite):
                 return pygame.image.load(filename).convert_alpha()
         
         
-            self.image = clean_and_load_png('Idle.png','../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/Idle.png')
+            self.image = clean_and_load_png('Idle.png','../graphics/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png')
             self.rect = self.image.get_rect(topleft = pos)
             self.original_size = self.image.get_size()
             new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
                 print("player is saved")
         
         
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Player_cropped.png').convert_alpha()
+        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-26)
         
@@ -157,7 +157,7 @@ class Player(pygame.sprite.Sprite):
             self.frame_index = 0
             
         # set the image
-        self.image = animation[int(self.frame_index)]
+        #self.image = animation[int(self.frame_index)]
         self.rect = self.image.get_rect(center = self.hitbox.center)
         
     
