@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
                 print("player is saved")
         
         
-        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/up.png').convert_alpha()
+        self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.hitbox = self.rect.inflate(0,-26)
         
@@ -154,11 +154,12 @@ class Player(pygame.sprite.Sprite):
     def animate(self):
         animation = self.animations[self.status]
         self.image = pygame.image.load(animation).convert_alpha()
-        print (animation)
+        print (len(animation))
         # loop over the frame index
         self.frame_index += self.animation_speed
         if self.frame_index >= len(animation):
             self.frame_index = 0
+            print(self.frame_index)
             
         # set the image
         #self.image = animation[int(self.frame_index)]
