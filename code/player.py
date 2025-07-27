@@ -54,7 +54,7 @@ class Player(pygame.sprite.Sprite):
                            'right_attack': [],'left_attack': [],'up_attack': [],'down_attack': []}
         
         for animation in self.animations.keys():
-            print(animation)
+            full_path = character_path + animation
         
     def input(self):
         keys = pygame.key.get_pressed()
