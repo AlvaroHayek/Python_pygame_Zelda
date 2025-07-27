@@ -157,18 +157,15 @@ class Player(pygame.sprite.Sprite):
     
     def animate(self):
         animation = self.animations[self.status]
-        if self.idle_animation:
-            self.image = pygame.image.load(animation).convert_alpha()
-            print (len(animation))
-        else:
+        self.image = pygame.image.load(animation).convert_alpha()
+        self.image_rect = self.image.get_rect()
+        if self.image_rect.height == 256:
             self.num_frames = 4
-            self.image = pygame.image.load(animation).convert_alpha()
             self.frame_height = self.image.get_height() // 4
-            print(self.frame_height)
-            self.crop_rect = self.image.get_rect()
-            print(self.crop_rect)
+            self.crop_rect = pygame.Rect(0,64,64,64)
             self.image = self.image.subsurface(self.crop_rect).copy()
-            print('walking')
+            print("is walking")
+
         # loop over the frame index
         self.frame_index += self.animation_speed
         if self.frame_index >= len(animation):
