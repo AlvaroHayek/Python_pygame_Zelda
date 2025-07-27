@@ -91,9 +91,17 @@ class Player(pygame.sprite.Sprite):
             print('magic')
     
     def get_status(self):
-        # idles status
+        
+        # idle status
         if self.direction.x == 0 and self.direction.y == 0:
-            self.tatus = self.status + '_idle'
+            if not 'idle' in self.status:
+                self.status = self.status + '_idle'
+        
+        if self.attacking:
+            self.direction.x = 0
+            self.direction.y = 0
+            if not 'attack' in self.status:
+                self.status = self.status + '_attack'
     
     def move(self, speed):
         if self.direction.magnitude() != 0:
@@ -135,5 +143,6 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.input()
         self.cooldowns()
+        self.get_status()
         self.move(self.speed)
     
