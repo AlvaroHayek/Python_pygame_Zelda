@@ -51,13 +51,16 @@ class Player(pygame.sprite.Sprite):
         self.obstacle_sprites = obstacle_sprites
     
     def import_player_assets(self):
-        character_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/SeparateAnim/"
+        character_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/"
         self.animations = {'up': [],'down': [],'left': [],'right': [],
                            'right_idle': [],'left_idle': [],'up_idle': [],'down_idle': [],
                            'right_attack': [],'left_attack': [],'up_attack': [],'down_attack': []}
         
         for animation in self.animations.keys():
-            full_path = character_path + animation
+            full_path = character_path + animation + '.png'
+            self.animations[animation] = full_path
+            
+        #print(self.animations)
         
     def input(self):
         keys = pygame.key.get_pressed()
@@ -150,7 +153,8 @@ class Player(pygame.sprite.Sprite):
     
     def animate(self):
         animation = self.animations[self.status]
-        
+        self.image = pygame.image.load(animation).convert_alpha()
+        print (animation)
         # loop over the frame index
         self.frame_index += self.animation_speed
         if self.frame_index >= len(animation):
@@ -158,7 +162,7 @@ class Player(pygame.sprite.Sprite):
             
         # set the image
         #self.image = animation[int(self.frame_index)]
-        self.rect = self.image.get_rect(center = self.hitbox.center)
+        #self.rect = self.image.get_rect(center = self.hitbox.center)
         
     
     def update(self):
