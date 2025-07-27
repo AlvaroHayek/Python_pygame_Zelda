@@ -46,6 +46,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         self.attacking = False
         self.attack_cooldown = 400
+        self.walking_change = 100
         self.walking_time = None
         self.attack_time = None
         
