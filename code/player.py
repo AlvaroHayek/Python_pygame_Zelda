@@ -64,7 +64,6 @@ class Player(pygame.sprite.Sprite):
             full_path = character_path + animation + '.png'
             self.animations[animation] = full_path
             
-        #print(self.animations)
         
     def input(self):
         keys = pygame.key.get_pressed()
@@ -174,7 +173,6 @@ class Player(pygame.sprite.Sprite):
                 self.current_frame+=1
                 if self.current_frame == 4:
                     self.current_frame = 1
-                print(self.current_frame)
                 
             
             
@@ -185,7 +183,6 @@ class Player(pygame.sprite.Sprite):
         self.frame_index += self.animation_speed
         if self.frame_index >= len(animation):
             self.frame_index = 0
-            print(self.frame_index)
             
         # set the image
         #self.image = animation[int(self.frame_index)]
