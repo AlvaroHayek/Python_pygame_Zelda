@@ -9,7 +9,6 @@ class Player(pygame.sprite.Sprite):
         
         self.idle_animation = True
         
-        #if save_path is None:
         if ntimes > 0:
             def clean_and_load_png(filename, png_path):
                 img = Image.open(png_path)
