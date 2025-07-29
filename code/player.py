@@ -7,8 +7,6 @@ class Player(pygame.sprite.Sprite):
     def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
-        self.idle_animation = True
-        
         if ntimes > 0:
             def clean_and_load_png(filename, png_path):
                 img = Image.open(png_path)
@@ -32,8 +30,6 @@ class Player(pygame.sprite.Sprite):
         # graphics setup
         self.import_player_assets()
         self.status = 'down'
-        self.frame_index = 0
-        self.animation_speed = 0.15
         
         # movement
         self.direction = pygame.math.Vector2()
@@ -112,14 +108,11 @@ class Player(pygame.sprite.Sprite):
     def move(self, speed):
         if self.direction.magnitude() != 0:
             self.direction = self.direction.normalize()
-            
-        #self.rect.x += self.direction.x * speed
+
         self.hitbox.x += self.direction.x * speed
         self.collision('horizontal')
-        #self.rect.y += self.direction.y * speed
         self.hitbox.y += self.direction.y * speed
         self.collision('vertical')
-        #self.rect.center += self.direction * speed
         self.rect.center = self.hitbox.center
         
     def collision(self, direction):
@@ -141,7 +134,6 @@ class Player(pygame.sprite.Sprite):
         
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
-        
         if self.attacking:
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.attacking = False
@@ -161,21 +153,6 @@ class Player(pygame.sprite.Sprite):
                 self.current_frame+=1
                 if self.current_frame == 4:
                     self.current_frame = 1
-                
-            
-            
-                
-            
-
-        # loop over the frame index
-        self.frame_index += self.animation_speed
-        if self.frame_index >= len(animation):
-            self.frame_index = 0
-            
-        # set the image
-        #self.image = animation[int(self.frame_index)]
-        #self.rect = self.image.get_rect(center = self.hitbox.center)
-        
     
     def update(self):
         self.input()
