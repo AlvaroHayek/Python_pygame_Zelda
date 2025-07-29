@@ -24,11 +24,6 @@ class Player(pygame.sprite.Sprite):
             self.crop_rect = pygame.Rect(crop_rect)
             self.crop_image = self.scaled_image.subsurface(self.crop_rect).copy()
             pygame.image.save(self.crop_image, save_path)
-            if os.path.exists(save_path):
-                print("player exists")
-            else:
-                print("player is saved")
-        
         
         self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
