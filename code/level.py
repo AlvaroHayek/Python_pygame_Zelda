@@ -32,14 +32,14 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites, self.create_attack], (480,385,64,64), tile_save_path, nuxtimes)
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path, nuxtimes)
                     nuxtimes=0
                 if col == 'w':
                     Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path,nuwtimes)
                     nuwtimes=0
                     #Water.insert(x,y, water_image)
                 if col == 'p':
-                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
+                    self.player = Player((x,y),[self.visible_sprites, self.create_attack], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
                     
     def create_attack(self):
