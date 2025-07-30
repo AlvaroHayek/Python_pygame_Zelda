@@ -4,6 +4,8 @@ from tile import Tile
 from player import Player
 from water import Water
 from debug import debug
+from weapon import Weapon
+from random import choice
 
 class Level:
     def __init__(self):
@@ -30,7 +32,7 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path, nuxtimes)
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites, self.create_attack], (480,385,64,64), tile_save_path, nuxtimes)
                     nuxtimes=0
                 if col == 'w':
                     Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path,nuwtimes)
@@ -40,8 +42,8 @@ class Level:
                     self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
                     
-
-                
+    def create_attack(self):
+        Weapon(self.player,[self.visible_sprites])
     
     def run(self):
         # update and draw the game
