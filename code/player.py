@@ -4,7 +4,7 @@ from PIL import Image
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,groups, obstacle_sprites, create_attack, crop_rect, save_path=None, ntimes=1):
+    def __init__(self,pos,groups, obstacle_sprites, create_attack, destroy_attack, crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
         if ntimes > 0:
@@ -45,9 +45,12 @@ class Player(pygame.sprite.Sprite):
         
         # weapon
         self.create_attack = create_attack
+        self.destroy_attack = destroy_attack
         self.weapon_index = 0
         self.weapon = list(weapon_data.keys())[self.weapon_index]
-        print(self.weapon)
+        self.can_switch_weapon = True
+        self.weapon_switch_time = None
+        self.switch_duration_cooldown = 200
     
     def import_player_assets(self):
         character_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/"
@@ -92,6 +95,12 @@ class Player(pygame.sprite.Sprite):
             self.attacking = True
             self.attack_time = pygame.time.get_ticks()
             print('magic')
+            
+        if keys[pygame.K_q] and self.can_switch_weapon:
+            self.can_switch_weapon = False
+            self.weapon_switch_time = pygame.time.get_ticks()
+            self.weapon_index += 1
+            
     
     def get_status(self):
         # idle status
@@ -143,6 +152,7 @@ class Player(pygame.sprite.Sprite):
         if self.attacking:
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.attacking = False
+                self.destroy_attack()
     
     def animate(self):
         animation = self.animations[self.status]
