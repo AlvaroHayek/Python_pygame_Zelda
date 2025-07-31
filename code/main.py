@@ -10,7 +10,6 @@ class Game:
         self.screen = pygame.display.set_mode((WIDTH,HEIGHT))
         pygame.display.set_caption('Zelda like game')
         self.clock = pygame.time.Clock()
-        
         self.level = Level()
         
     def run(self):
