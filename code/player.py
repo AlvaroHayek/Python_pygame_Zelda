@@ -4,7 +4,7 @@ from PIL import Image
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,groups, obstacle_sprites, crop_rect, save_path=None, ntimes=1):
+    def __init__(self,pos,groups, obstacle_sprites, create_attack, crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
         if ntimes > 0:
@@ -42,6 +42,7 @@ class Player(pygame.sprite.Sprite):
         self.num_frames = 3
         self.current_frame = 0
         self.obstacle_sprites = obstacle_sprites
+        self.create_attack = create_attack
     
     def import_player_assets(self):
         character_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/"
@@ -80,7 +81,7 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_SPACE] and not self.attacking:
             self.attacking = True
             self.attack_time = pygame.time.get_ticks()
-            print('attack')
+            self.create_attack()
         # magic input
         if keys[pygame.K_LCTRL] and not self.attacking:
             self.attacking = True

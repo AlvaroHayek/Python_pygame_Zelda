@@ -39,7 +39,7 @@ class Level:
                     nuwtimes=0
                     #Water.insert(x,y, water_image)
                 if col == 'p':
-                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, (0,0,64,64), player_save_path, nuptimes)
+                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, self.create_attack, (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
                     
     def create_attack(self):
