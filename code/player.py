@@ -42,6 +42,8 @@ class Player(pygame.sprite.Sprite):
         self.num_frames = 3
         self.current_frame = 0
         self.obstacle_sprites = obstacle_sprites
+        
+        # weapon
         self.create_attack = create_attack
     
     def import_player_assets(self):
