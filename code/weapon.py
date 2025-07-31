@@ -1,4 +1,5 @@
 import pygame
+from PIL import Image
 
 class Weapon(pygame.sprite.Sprite):
     def __init__(self, player,groups):
@@ -7,7 +8,15 @@ class Weapon(pygame.sprite.Sprite):
         
         # graphic
         full_path = f'../graphics/NinjaAdventure/Items/Weapons/{player.weapon}/SpriteInHand.png'
-        self.image = pygame.image.load(full_path).convert_alpha()
+        def clean_and_load_png(png_path):
+                img = Image.open(png_path)
+                img.save(png_path, icc_profile=None)
+                return pygame.image.load(png_path).convert_alpha()
+            
+        self.image = clean_and_load_png(full_path).convert_alpha()
+        self.original_size = self.image.get_size()
+        new_size = (self.original_size[0] * 3, self.original_size[1] * 3)
+        self.image = pygame.transform.scale(self.image, new_size)
         
         # placement
         if direction == 'right':
