@@ -25,7 +25,12 @@ class UI:
         # drawing the bar
         pygame.draw.rect(self.display_surface,color,current_rect)
         pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,bg_rect,3)
+    
+    def show_exp(self,exp):
+        text_surf = self.font.render(str(int(exp)),False,TEXT_COLOR)
         
     def display(self, player):
         self.show_bar(player.health, player.stats['health'], self.health_bar_rect, HEALTH_COLOR)
         self.show_bar(player.energy, player.stats['energy'], self.energy_bar_rect, ENERGY_COLOR)
+        
+        self.show_exp()
