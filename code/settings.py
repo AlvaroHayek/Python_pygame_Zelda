@@ -4,6 +4,13 @@ HEIGHT = 720
 FPS = 60
 TILESIZE = 64
 
+# ui
+BAR_HEIGHT = 20
+HEALTH_BAR_WIDTH = 200
+# general colors
+
+# ui colors
+
 # weapons
 weapon_data = {
     'sword': {'cooldown': 100, 'damage': 15, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Sword/SpriteInHand.png'},
@@ -12,6 +19,7 @@ weapon_data = {
     'rapier': {'cooldown': 50, 'damage': 8, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Rapier/SpriteInHand.png'},
     'stick': {'cooldown': 90, 'damage': 12, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Stick/SpriteInHand.png'},
     'whip': {'cooldown': 150, 'damage': 20, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Sword/SpriteInHand.png'}}
+
 # world map
 WORLD_MAP = [
 ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'],
