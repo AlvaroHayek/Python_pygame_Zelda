@@ -28,6 +28,7 @@ class UI:
     
     def show_exp(self,exp):
         text_surf = self.font.render(str(int(exp)),False,TEXT_COLOR)
+        text_rect = text_surf.get_rect(bottomright = (x,y))
         
     def display(self, player):
         self.show_bar(player.health, player.stats['health'], self.health_bar_rect, HEALTH_COLOR)
