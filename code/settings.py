@@ -25,7 +25,7 @@ UI_BORDER_COLOR_ACTIVE = 'gold'
 
 # weapons
 weapon_data = {
-    'sword': {'cooldown': 100, 'damage': 15, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Sword/SpriteInHand.png'},
+    'sword': {'cooldown': 100, 'damage': 15, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Sword/SpriteInHand.png', 'box':'../graphics/NinjaAdventure/Items/Weapons/Sword/Sprite.png'},
     'axe': {'cooldown': 400, 'damage': 30, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Axe/SpriteInHand.png'},
     'club': {'cooldown': 200, 'damage': 25, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Club/SpriteInHand.png'},
     'rapier': {'cooldown': 50, 'damage': 8, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Rapier/SpriteInHand.png'},
