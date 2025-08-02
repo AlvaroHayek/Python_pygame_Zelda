@@ -27,11 +27,15 @@ class UI:
         pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,bg_rect,3)
         
         # convert weapon dictionary
-        self.weapon_graphics = []
+        self.weapon_box = []
         for weapon in weapon_data.values():
             path = weapon['box']
             weapon = pygame.image.load(path).convert_alpha()
-            self.weapon_graphics.append(weapon)
+            original_size = weapon.get_size()
+            new_size = (original_size[0] * 3.8, original_size[1] * 3.8)
+            weapon = pygame.transform.scale(weapon, new_size)
+            
+            self.weapon_box.append(weapon)
         
     
     def show_exp(self,exp):
@@ -52,7 +56,7 @@ class UI:
         
     def weapon_overlay(self,weapon_index):
         bg_rect = self.selection_box(10,630) 
-        weapon_surf = self.weapon_graphics[weapon_index]
+        weapon_surf = self.weapon_box[weapon_index]
         weapon_rect = weapon_surf.get_rect(center=bg_rect.center)
         
         self.display_surface.blit(weapon_surf, weapon_rect)
