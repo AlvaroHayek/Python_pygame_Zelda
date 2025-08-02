@@ -35,6 +35,9 @@ class UI:
         pygame.draw.rect(self.display_surface,UI_BG_COLOR,text_rect.inflate(22, 22))
         self.display_surface.blit(text_surf,text_rect)
         pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,text_rect.inflate(22, 22),3)
+    
+    def selection_box(self, left, top):
+        bg_rect = pygame.Rect(left,top,ITEM,h)
         
     def display(self, player):
         self.show_bar(player.health, player.stats['health'], self.health_bar_rect, HEALTH_COLOR)
