@@ -29,7 +29,7 @@ class UI:
         # convert weapon dictionary
         self.weapon_graphics = []
         for weapon in weapon_data.values():
-            path = weapon['graphic']
+            path = weapon['box']
             weapon = pygame.image.load(path).convert_alpha()
             self.weapon_graphics.append(weapon)
         

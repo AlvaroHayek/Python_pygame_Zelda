@@ -109,6 +109,7 @@ class Player(pygame.sprite.Sprite):
             
             if self.weapon_index < len(list(weapon_data.keys())) - 1:
                 self.weapon_index += 1
+                print(self.weapon_index)
             else:
                 self.weapon_index = 0
                 
