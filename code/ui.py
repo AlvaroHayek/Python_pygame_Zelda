@@ -41,11 +41,14 @@ class UI:
         pygame.draw.rect(self.display_surface,UI_BG_COLOR,bg_rect)
         pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,bg_rect,3)
         
+    def weapon_overlay(self,weapon_index):
+        self.selection_box(10,630) 
+        
     def display(self, player):
         self.show_bar(player.health, player.stats['health'], self.health_bar_rect, HEALTH_COLOR)
         self.show_bar(player.energy, player.stats['energy'], self.energy_bar_rect, ENERGY_COLOR)
         
         self.show_exp(player.exp)
         
-        self.selection_box(10,630) # weapon
-        self.selection_box(10,630) # magic
+        self.weapon_overlay(player.weapon_index) # weapon
+        self.selection_box(80,635) # magic
