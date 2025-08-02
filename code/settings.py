@@ -32,6 +32,12 @@ weapon_data = {
     'stick': {'cooldown': 90, 'damage': 12, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Stick/SpriteInHand.png', 'box':'../graphics/NinjaAdventure/Items/Weapons/Stick/Sprite.png'},
     'whip': {'cooldown': 150, 'damage': 20, 'graphic':'../graphics/NinjaAdventure/Items/Weapons/Whip/SpriteInHand.png', 'box':'../graphics/NinjaAdventure/Items/Weapons/Whip/Sprite.png'}}
 
+# magic
+magic_data = {
+    'fire': {'strength': 5, 'cost': 20, 'graphic':'../graphics/NinjaAdventure/FX/Elemental/Flame/SpriteSheet.png'},
+    'heal': {'strength': 20, 'cost': 10, 'graphic':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png'}
+}
+
 # world map
 WORLD_MAP = [
 ['w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w','w'],
