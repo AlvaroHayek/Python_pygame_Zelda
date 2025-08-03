@@ -16,6 +16,8 @@ class Enemy(Entity):
         self.original_size = self.image.get_size()
         new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
         self.image = pygame.transform.scale(self.image, new_size)
+        
+        # movement
         self.rect = self.image.get_rect(topleft=pos)
         
     def import_graphics(self,name):
@@ -24,4 +26,3 @@ class Enemy(Entity):
         for animation in self.animations.keys():
             full_path = enemy_path + animation + '.png'
             self.animations[animation] = full_path
-        print(self.animations)
