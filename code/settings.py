@@ -34,8 +34,8 @@ weapon_data = {
 
 # magic
 magic_data = {
-    'flame': {'strength': 5, 'cost': 20, 'graphic':'../graphics/NinjaAdventure/FX/Elemental/Flame/SpriteSheet.png'},
-    'heal': {'strength': 20, 'cost': 10, 'graphic':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png'}
+    'flame': {'strength': 5, 'cost': 20, 'graphic':'../graphics/NinjaAdventure/FX/Elemental/Flame/FlameBox.png'},
+    'heal': {'strength': 20, 'cost': 10, 'graphic':'../graphics/NinjaAdventure/FX/Magic/Spark/SparkBox.png'}
 }
 
 # world map
