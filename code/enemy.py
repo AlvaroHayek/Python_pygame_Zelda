@@ -8,3 +8,7 @@ class Enemy(Entity):
         # general setup
         super().__init__(groups)
         self.sprite_type = 'enemy'
+        
+        # graphics setup
+        self.image = pygame.Surface((64,64))
+        self.rect = self.image.get_rect(topleft=pos)

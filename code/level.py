@@ -7,6 +7,7 @@ from debug import debug
 from weapon import Weapon
 from random import choice
 from ui import UI
+from enemy import Enemy
 
 class Level:
     def __init__(self):
@@ -45,12 +46,14 @@ class Level:
                 if col == 'w':
                     Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path,nuwtimes)
                     nuwtimes=0
-                    #Water.insert(x,y, water_image)
                 if col == 'p':
                     self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites, 
                                          self.create_attack, self.destroy_attack, self.create_magic,
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
+                if col == 'e':
+                    Enemy('monster',(x,y),[self.visible_sprites])
+                    
                     
     def create_attack(self):
         self.current_attack = Weapon(self.player,[self.visible_sprites])
