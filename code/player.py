@@ -33,7 +33,6 @@ class Player(Entity):
         self.status = 'down'
         
         # movement
-        self.direction = pygame.math.Vector2()
         self.attacking = False
         self.attack_cooldown = 400
         self.walking_change = 100
