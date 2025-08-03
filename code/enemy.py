@@ -30,6 +30,9 @@ class Enemy(Entity):
         self.speed = monster_info['speed']
         self.attack_damage = monster_info['damage']
         self.resistance = monster_info['resistance']
+        self.attack_radius = monster_info['attack_radius']
+        self.notice_radius = monster_info['notice_radius']
+        self.attack_type = monster_info['attack_type']
         
         
     def import_graphics(self,name):
@@ -38,6 +41,16 @@ class Enemy(Entity):
         for animation in self.animations.keys():
             full_path = enemy_path + animation + '.png'
             self.animations[animation] = full_path
+    
+    def get_status(self,player):
+        distance = ???
+        
+        if distance <= self.attack_radius:
+            self.status = 'attack'
+        elif distance <= self.notice_radius:
+            self.status = 'move'
+        else:
+            self.status = 'idle'
             
     def update(self):
         self.move(self.speed)
