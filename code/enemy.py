@@ -3,7 +3,7 @@ from settings import *
 from entity import Entity
 
 class Enemy(Entity):
-    def __init__(self,monster_name,pos,groups):
+    def __init__(self,monster_name,pos,groups,obstacle_sprites):
         
         # general setup
         super().__init__(groups)
@@ -22,9 +22,22 @@ class Enemy(Entity):
         self.hitbox = self.rect.inflate(0,-10)
         self.obstacle_sprites = obstacle_sprites
         
+        # stats
+        self.monster_name = monster_name
+        monster_info = monster_data[self.monster_name]
+        self.health = monster_info['health']
+        self.exp = monster_info['exp']
+        self.speed = monster_info['speed']
+        self.attack_damage = monster_info['damage']
+        self.resistance = monster_info['resistance']
+        
+        
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
         enemy_path = f'../graphics/NinjaAdventure/Actor/Monsters/{name}/'
         for animation in self.animations.keys():
             full_path = enemy_path + animation + '.png'
             self.animations[animation] = full_path
+            
+    def update(self):
+        self.move(self.speed)
