@@ -42,6 +42,15 @@ class Enemy(Entity):
             full_path = enemy_path + animation + '.png'
             self.animations[animation] = full_path
     
+    def get_player_distance_direction(self,player):
+        enemy_vec = pygame.math.Vector2(self.rect.center)
+        player_vec = pygame.math.Vector2(player.rect.center)
+        distance = (player_vec - enemy_vec).magnitude()
+        
+        direction = (player_vec - enemy_vec).normalize()
+        
+        return (distance,direction)
+    
     def get_status(self,player):
         distance = ???
         
