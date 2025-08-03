@@ -19,6 +19,8 @@ class Enemy(Entity):
         
         # movement
         self.rect = self.image.get_rect(topleft=pos)
+        self.hitbox = self.rect.inflate(0,-10)
+        self.obstacle_sprites = obstacle_sprites
         
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
