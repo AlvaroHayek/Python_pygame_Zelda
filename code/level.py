@@ -52,7 +52,7 @@ class Level:
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
                 if col == 'e':
-                    Enemy('monster',(x,y),[self.visible_sprites])
+                    Enemy('axolot',(x,y),[self.visible_sprites])
                     
                     
     def create_attack(self):
