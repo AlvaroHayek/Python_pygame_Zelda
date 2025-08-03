@@ -4,7 +4,7 @@ from PIL import Image
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self,pos,groups, obstacle_sprites, create_attack, destroy_attack, crop_rect, save_path=None, ntimes=1):
+    def __init__(self,pos,groups, obstacle_sprites, create_attack, destroy_attack, create_magic,crop_rect, save_path=None, ntimes=1):
         super().__init__(groups)
         
         if ntimes > 0:
@@ -52,9 +52,11 @@ class Player(pygame.sprite.Sprite):
         self.switch_duration_cooldown = 200
         
         # magic
+        self.create_magic = create_magic
         self.magic_index = 0
-        
-        
+        self.weapon = list(magic_data.keys())[self.magic_index]
+        self.can_switch_magic = True
+        self.magic_switch_time = None
         
         # stats
         self.stats = {'health': 100, 'energy': 60, 'attack': 10, 'magic': 4, 'speed': 5}
