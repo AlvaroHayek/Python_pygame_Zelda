@@ -124,6 +124,17 @@ class Player(pygame.sprite.Sprite):
                 
             self.weapon = list(weapon_data.keys())[self.weapon_index]
             
+        if keys[pygame.K_e] and self.can_switch_magic:
+            self.can_switch_magic = False
+            self.magic_switch_time = pygame.time.get_ticks()
+            
+            if self.magic_index < len(list(magic_data.keys())) - 1:
+                self.magic_index += 1
+            else:
+                self.magic_index = 0
+                
+            self.magic = list(magic_data.keys())[self.magic_index]
+            
     
     def get_status(self):
         # idle status
@@ -180,6 +191,10 @@ class Player(pygame.sprite.Sprite):
         if not self.can_switch_weapon:
             if current_time - self.weapon_switch_time >= self.switch_duration_cooldown:
                 self.can_switch_weapon = True
+                
+        if not self.can_switch_magic:
+            if current_time - self.magic_switch_time >= self.switch_duration_cooldown:
+                self.can_switch_magic = True
     
     def animate(self):
         animation = self.animations[self.status]
