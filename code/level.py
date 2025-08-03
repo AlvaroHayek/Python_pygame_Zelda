@@ -51,8 +51,12 @@ class Level:
                                          self.create_attack, self.destroy_attack, self.create_magic,
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
-                if col == 'e':
-                    Enemy('axolot',(x,y),[self.visible_sprites])
+                else:
+                    if col == 'ea': monster_name = 'axolot'
+                    elif col == 'er': monster_name = 'raccoon'
+                    elif col == 'es': monster_name = 'spirit'
+                    elif col == 'eb': monster_name = 'bamboo'
+                    Enemy(monster_name,(x,y),[self.visible_sprites])
                     
                     
     def create_attack(self):
