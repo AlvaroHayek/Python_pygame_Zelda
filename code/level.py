@@ -43,7 +43,7 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites], (480,385,64,64), tile_save_path, nuxtimes)
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites, self.attackable_sprites], (480,385,64,64), tile_save_path, nuxtimes)
                     nuxtimes=0
                 if col == 'w':
                     Water((x,y),[self.visible_sprites,self.obstacle_sprites], (35,38,64,64), water_save_path,nuwtimes)
@@ -61,7 +61,7 @@ class Level:
                     
                     
     def create_attack(self):
-        self.current_attack = Weapon(self.player,[self.visible_sprites])
+        self.current_attack = Weapon(self.player,[self.visible_sprites, self.attack_sprites])
     
     def create_magic(self,style,strength,cost):
         print(style)
