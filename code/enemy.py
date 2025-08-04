@@ -119,6 +119,13 @@ class Enemy(Entity):
     def get_damage(self, player, attack_type):
         if attack_type == 'weapon':
             self.health -= player.get_full_weapon_damage()
+        else:
+            pass
+            # magic damage
+    
+    def check_death(self):
+        if self.health <= 0:
+            self.kill()
     
     def update(self):
         self.move(self.speed)
