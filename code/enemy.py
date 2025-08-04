@@ -114,11 +114,12 @@ class Enemy(Entity):
         current_time = pygame.time.get_ticks()
         if current_time - self.attack_time >= self.attack_cooldown:
             self.can_attack = True
+        #print('current time: ', current_time, ' attack_cooldown: ', self.attack_cooldown)
     
     def update(self):
         self.move(self.speed)
         self.animate()
-        self.cooldown()
+        #print(self.can_attack)
         
     def enemy_update(self,player):
         self.get_status(player)
