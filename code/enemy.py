@@ -20,6 +20,8 @@ class Enemy(Entity):
         # movement
         self.rect = self.image.get_rect(topleft=pos)
         self.hitbox = self.rect.inflate(0,-10)
+        self.num_frames = 3
+        self.current_frame = 0
         self.obstacle_sprites = obstacle_sprites
         
         # stats
@@ -73,9 +75,28 @@ class Enemy(Entity):
             self.direction = pygame.math.Vector2()
             
     def animate(self):
-    
+        animation = self.animations[self.status]
+        self.image = pygame.image.load(animation).convert_alpha()
+        self.image_rect = self.image.get_rect()
+        self.original_size = self.image.get_size()
+        new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
+        self.image = pygame.transform.scale(self.image, new_size)
+        print(self.image_rect)
+        if self.image_rect.height == 256:
+            print('aaa')
+            current_time_anim = pygame.time.get_ticks()
+            self.frame_height = self.image.get_height() // 4
+            self.crop_rect = pygame.Rect(0,64*self.current_frame,64,64)
+            self.image = self.image.subsurface(self.crop_rect).copy()
+            if current_time_anim - self.walking_time > self.walking_change:
+                self.walking_time = current_time_anim
+                current_time_anim = 0
+                self.current_frame+=1
+                if self.current_frame == 4:
+                    self.current_frame = 1
     def update(self):
         self.move(self.speed)
+        self.animate()
         
     def enemy_update(self,player):
         self.get_status(player)
