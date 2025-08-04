@@ -54,7 +54,7 @@ class Player(Entity):
         # magic
         self.create_magic = create_magic
         self.magic_index = 0
-        self.weapon = list(magic_data.keys())[self.magic_index]
+        self.magic = list(magic_data.keys())[self.magic_index]
         self.can_switch_magic = True
         self.magic_switch_time = None
         

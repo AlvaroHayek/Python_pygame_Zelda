@@ -38,6 +38,10 @@ class Enemy(Entity):
         self.notice_radius = monster_info['notice_radius']
         self.attack_type = monster_info['attack_type']
         
+        # player interaction
+        self.can_attack = True
+        self.attack_time = None
+        self.attack_cooldown = 400
         
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
@@ -61,7 +65,7 @@ class Enemy(Entity):
     def get_status(self,player):
         distance = self.get_player_distance_direction(player)[0]
 
-        if distance <= self.attack_radius:
+        if distance <= self.attack_radius and self.can_attack:
             self.status = 'attack'
         elif distance <= self.notice_radius:
             self.status = 'move'
@@ -70,7 +74,7 @@ class Enemy(Entity):
     
     def actions(self,player):
         if self.status == 'attack':
-            print('attack')
+            self.attack_time = pygame.time.get_ticks()
         elif self.status == 'move':
             self.direction = self.get_player_distance_direction(player)[1]
         else:
@@ -84,8 +88,10 @@ class Enemy(Entity):
         new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
         self.image = pygame.transform.scale(self.image, new_size)
         if self.image_rect.height >= 32:
-            if self.status == 'attack' and self.current_frame >= 2:
-                self.current_frame = 0
+            if self.status == 'attack':
+                if self.current_frame >= 2:
+                    self.current_frame = 0
+                self.can_attack = False
             current_time_anim = pygame.time.get_ticks()
             self.frame_height = self.image.get_height() // 4
             self.crop_rect = pygame.Rect(0,64*self.current_frame,64,64)
@@ -101,6 +107,12 @@ class Enemy(Entity):
                 else:
                     if self.current_frame == 4:
                         self.current_frame = 1
+    
+    def attack_cooldown(self):
+        current_time = pygame.time.get_ticks()
+        if current_time - self.attack_time >= self.attack_cooldown:
+            self.can_attack = True
+    
     def update(self):
         self.move(self.speed)
         self.animate()
