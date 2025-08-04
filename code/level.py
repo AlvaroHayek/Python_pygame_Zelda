@@ -21,6 +21,8 @@ class Level:
         
         # attack sprites
         self.current_attack = None
+        self.attack_sprites = pygame.sprite.Group()
+        self.attackable_sprites = pygame.sprite.Group()
         
         # sprite setup
         self.create_map()
@@ -51,10 +53,10 @@ class Level:
                                          self.create_attack, self.destroy_attack, self.create_magic,
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
-                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites], self.obstacle_sprites)
-                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites], self.obstacle_sprites)
-                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites], self.obstacle_sprites)
-                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites], self.obstacle_sprites)
+                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
+                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
+                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
+                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
                     
                     
                     
