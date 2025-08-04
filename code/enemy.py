@@ -43,6 +43,8 @@ class Enemy(Entity):
         self.attack_time = 0
         self.attack_cooldown = 400
         
+        # invincibility timer
+        
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
         enemy_path = f'../graphics/NinjaAdventure/Actor/Monsters/{name}/'
@@ -130,7 +132,8 @@ class Enemy(Entity):
     def update(self):
         self.move(self.speed)
         self.animate()
-        #print(self.can_attack)
+        self.cooldown()
+        self.check_death()
         
     def enemy_update(self,player):
         self.get_status(player)
