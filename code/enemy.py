@@ -116,6 +116,10 @@ class Enemy(Entity):
             self.can_attack = True
         #print('current time: ', current_time, ' attack_cooldown: ', self.attack_cooldown)
     
+    def get_damage(self, player, attack_type):
+        if attack_type == 'weapon':
+            self.health -= player.get_full_weapon_damage()
+    
     def update(self):
         self.move(self.speed)
         self.animate()
