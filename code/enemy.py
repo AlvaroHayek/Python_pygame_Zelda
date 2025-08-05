@@ -114,6 +114,13 @@ class Enemy(Entity):
                 else:
                     if self.current_frame == 4:
                         self.current_frame = 1
+        
+        if not self.vulnerable:
+            # flicker
+            alpha = ###
+            self.image
+        elif self.vulnerable:
+            self.image.set_alpha(255)
     
     def cooldown(self):
         current_time = pygame.time.get_ticks()
