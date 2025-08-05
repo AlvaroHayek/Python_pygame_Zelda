@@ -40,7 +40,7 @@ class Enemy(Entity):
         
         # player interaction
         self.can_attack = True
-        self.attack_time = 0
+        self.attack_time = None
         self.attack_cooldown = 400
         
         # invincibility timer
@@ -121,7 +121,7 @@ class Enemy(Entity):
             if current_time - self.attack_time >= self.attack_cooldown:
                 self.can_attack = True
                 
-        if self.vulnerable:
+        if not self.vulnerable:
             if current_time - self.hit_time >= self.invincibility_duration:
                 self.vulnerable = True
     
