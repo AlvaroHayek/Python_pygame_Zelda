@@ -53,10 +53,10 @@ class Level:
                                          self.create_attack, self.destroy_attack, self.create_magic,
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
-                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
-                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
-                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
-                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites)
+                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player)
+                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player)
+                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player)
+                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player)
                     
                     
                     
@@ -87,6 +87,9 @@ class Level:
     def damage_player(self,amount,attack_type):
         if self.player.vulnerable:
             self.player.health -= amount
+            self.player.vulnerable = False
+            self.player.hurt_time = pygame.time.get_ticks()
+            # spawn particles
             
     
     def run(self):

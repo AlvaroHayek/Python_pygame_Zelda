@@ -3,7 +3,7 @@ from settings import *
 from entity import Entity
 
 class Enemy(Entity):
-    def __init__(self,monster_name,pos,groups,obstacle_sprites):
+    def __init__(self,monster_name,pos,groups,obstacle_sprites,parameter):
         
         # general setup
         super().__init__(groups)
