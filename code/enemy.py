@@ -117,7 +117,7 @@ class Enemy(Entity):
         
         if not self.vulnerable:
             # flicker
-            alpha = ### toggle between 0 and 255
+            alpha = self.wave_value()
             self.image.set_alpha(alpha)
         elif self.vulnerable:
             self.image.set_alpha(255)

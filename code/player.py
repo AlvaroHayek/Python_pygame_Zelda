@@ -185,6 +185,9 @@ class Player(Entity):
                 self.current_frame+=1
                 if self.current_frame == 4:
                     self.current_frame = 1
+                    
+        # flicker
+        
     
     def get_full_weapon_damage(self):
         base_damage = self.stats['attack']
