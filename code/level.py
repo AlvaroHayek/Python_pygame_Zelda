@@ -84,6 +84,11 @@ class Level:
                         else:
                             target_sprite.get_damage(self.player,attack_sprite.sprite_type)
     
+    def damage_player(self,amount,attack_type):
+        if self.player.vulnerable:
+            self.player.health -= amount
+            
+    
     def run(self):
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
