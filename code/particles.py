@@ -27,18 +27,13 @@ class AnimationPlayer:
                 '../graphics/NinjaAdventure/FX/Particle/LeafPink.png',
                 '../graphics/NinjaAdventure/FX/Particle/Bamboo.png',
                 '../graphics/NinjaAdventure/FX/Particle/Grass.png',
-                self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Leaf.png'),
-                self.reflect_images('../graphics/NinjaAdventure/FX/Particle/LeafPink.png'),
-                self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Bamboo.png'),
-                self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Grass.png'),
+                #self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Leaf.png'),
+                #self.reflect_images('../graphics/NinjaAdventure/FX/Particle/LeafPink.png'),
+                #self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Bamboo.png'),
+                #self.reflect_images('../graphics/NinjaAdventure/FX/Particle/Grass.png'),
             )
             
         }
-        
-    #def clean_and_load_png(png_path):
-    #        img = Image.open(png_path)
-    #        img.save(png_path, icc_profile=None)
-    #        return pygame.image.load(png_path).convert_alpha()
         
     def reflect_images(self,frame):
         new_frames = []
@@ -48,7 +43,13 @@ class AnimationPlayer:
     
     def create_grass_particles(self,pos,groups):
         animation_frames = choice(self.frames['leaf'])
-        ParticleEffect(pos,animation_frames,groups)
+        self.image = pygame.image.load(animation_frames).convert_alpha()
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
+        print('ares ',animation_frames)
+        print(self.width)
+        print(self.height)
+        #ParticleEffect(pos,animation_frames,groups)
         
     def create_particles(self,animation_type,pos,groups):
         animation_frames = self.frames[animation_type]
