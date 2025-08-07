@@ -5,9 +5,22 @@ class AnimationPlayer:
     def __init__(self):
         self.frames = {
             # magic
+            'Flame':'../graphics/NinjaAdventure/FX/Elemental/Flame/SpriteSheet.png',
+            'Aura':'../graphics/NinjaAdventure/FX/Magic/Aura/SpriteSheet.png',
+            'Spark':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png', # used to heal
             
             # attacks
-            
+            'Claw':'../graphics/NinjaAdventure/FX/SlashFx/Claw/SpriteSheet.png',
+            'Slash':'../graphics/NinjaAdventure/FX/SlashFx/Slash/SpriteSheet.png',
+            'Cut':'../graphics/NinjaAdventure/FX/SlashFx/Cut/SpriteSheet.png',
+            'Plant':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheet.png',
+            'Thunder':'../graphics/NinjaAdventure/FX/Elemental/Thunder/SpriteSheet.png',
+            # monster deaths
+            'axolot':'../graphics/NinjaAdventure/FX/Smoke/Smoke/SpriteSheet.png',
+            'raccoon':,
+            'Spirit':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png',
+            'bamboo':,
+            # leafs
             
         }
 
