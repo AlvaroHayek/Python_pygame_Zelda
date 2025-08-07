@@ -42,14 +42,22 @@ class AnimationPlayer:
         return flipped_frame
     
     def create_grass_particles(self,pos,groups):
-        animation_frames = choice(self.frames['leaf'])
-        self.image = pygame.image.load(animation_frames).convert_alpha()
+        animation_frames = []
+        animation_full_frame = choice(self.frames['leaf'])
+        self.image = pygame.image.load(animation_full_frame).convert_alpha()
+        self.original_size = self.image.get_size()
+        new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
+        self.image = pygame.transform.scale(self.image, new_size)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-        print('ares ',animation_frames)
-        print(self.width)
-        print(self.height)
-        #ParticleEffect(pos,animation_frames,groups)
+        self.frame_width = self.width / 6
+        init_pos = 0
+        for init_factor in range(6):
+            self.crop_rect = pygame.Rect(init_factor*self.frame_width, 0, self.frame_width, self.height)
+            self.cropped_image = self.image.subsurface(self.crop_rect).copy()
+            self.rect = self.cropped_image.get_rect()
+            animation_frames.append(self.cropped_image)
+        ParticleEffect(pos,animation_frames,groups)
         
     def create_particles(self,animation_type,pos,groups):
         animation_frames = self.frames[animation_type]

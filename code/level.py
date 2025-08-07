@@ -85,7 +85,7 @@ class Level:
                     for target_sprite in collision_sprites:
                         if isinstance(target_sprite, Tile):
                             pos = target_sprite.rect.center
-                            offset = pygame.math.Vector2(0,75)
+                            offset = pygame.math.Vector2(0,0)
                             #for leaf in range(randint(3,6)):
                             self.animation_player.create_grass_particles(pos - offset,[self.visible_sprites])
                             target_sprite.kill()
