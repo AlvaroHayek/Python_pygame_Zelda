@@ -30,7 +30,13 @@ class AnimationPlayer:
             
         }
         
-    def reflect_images
+    def reflect_images(self,frames):
+        new_frames = []
+        for frame in frames:
+            flipped_frame = pygame.transform.flip(frame,True,False)
+            new_frames.append(flipped_frame)
+        return new_frames
+            
 
 class ParticleEffect(pygame.sprite.Sprite):
     def __init__(self,pos,animation_frames,groups):
