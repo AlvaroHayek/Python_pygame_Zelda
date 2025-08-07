@@ -43,10 +43,8 @@ class AnimationPlayer:
     def reflect_images(self,frame):
         new_frames = []
         self.image = pygame.image.load(frame).convert_alpha()
-        #for frame in frames:
         flipped_frame = pygame.transform.flip(self.image,True,False)
-        new_frames.append(flipped_frame)
-        return new_frames
+        return flipped_frame
     
     def create_grass_particles(self,pos,groups):
         animation_frames = choice(self.frames['leaf'])
