@@ -196,7 +196,11 @@ class Player(Entity):
                     self.current_frame = 1
                     
         # flicker
-        
+        if not self.vulnerable:
+            alpha = self.wave_value()
+            self.image.set_alpha(alpha)
+        else:
+            self.image.set_alpha(255)
     
     def get_full_weapon_damage(self):
         base_damage = self.stats['attack']
