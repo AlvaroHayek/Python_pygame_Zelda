@@ -40,10 +40,10 @@ magic_data = {
 
 # enemy
 monster_data = {
-    'axolot': {'health':100,'exp':100,'damage':20,'attack_type':'slash','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Whoosh & Slash/Slash.wav','speed':3, 'resistance':3, 'attack_radius':80, 'notice_radius':360},
-    'raccoon': {'health':300,'exp':250,'damage':40,'attack_type':'hit','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Hit & Impact/Hit1.wav','speed':2, 'resistance':3, 'attack_radius':120, 'notice_radius':400},
-    'spirit': {'health':100,'exp':110,'damage':8,'attack_type':'explosion','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Elemental/Explosion2.wav','speed':4, 'resistance':3, 'attack_radius':60, 'notice_radius':350},
-    'bamboo': {'health':70,'exp':120,'damage':6,'attack_type':'leaf_attack','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Whoosh & Slash/Slash5.wav','speed':3, 'resistance':3, 'attack_radius':50, 'notice_radius':300}
+    'axolot': {'health':100,'exp':100,'damage':20,'attack_type':'Slash','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Whoosh & Slash/Slash.wav','speed':3, 'resistance':3, 'attack_radius':80, 'notice_radius':360},
+    'raccoon': {'health':300,'exp':250,'damage':40,'attack_type':'Cut','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Hit & Impact/Hit1.wav','speed':2, 'resistance':3, 'attack_radius':120, 'notice_radius':400},
+    'spirit': {'health':100,'exp':110,'damage':8,'attack_type':'Thunder','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Elemental/Explosion2.wav','speed':4, 'resistance':3, 'attack_radius':60, 'notice_radius':350},
+    'bamboo': {'health':70,'exp':120,'damage':6,'attack_type':'Plant','attack_sound':'../graphics/NinjaAdventure/Audio/Sounds/Whoosh & Slash/Slash5.wav','speed':3, 'resistance':3, 'attack_radius':50, 'notice_radius':300}
 }
 
 # world map
