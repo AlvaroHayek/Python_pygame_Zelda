@@ -17,12 +17,20 @@ class AnimationPlayer:
             'Thunder':'../graphics/NinjaAdventure/FX/Elemental/Thunder/SpriteSheet.png',
             # monster deaths
             'axolot':'../graphics/NinjaAdventure/FX/Smoke/Smoke/SpriteSheet.png',
-            'raccoon':,
+            'raccoon':'../graphics/NinjaAdventure/FX/Magic/Circle/SpriteSheetOrange.png',
             'Spirit':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png',
-            'bamboo':,
+            'bamboo':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheetB.png',
             # leafs
+            'leaf': (
+                '../graphics/NinjaAdventure/FX/Particle/Leaf.png',
+                '../graphics/NinjaAdventure/FX/Particle/LeafPink.png',
+                '../graphics/NinjaAdventure/FX/Particle/Bamboo.png',
+                '../graphics/NinjaAdventure/FX/Particle/Grass.png',
+            )
             
         }
+        
+    def reflect_images
 
 class ParticleEffect(pygame.sprite.Sprite):
     def __init__(self,pos,animation_frames,groups):
