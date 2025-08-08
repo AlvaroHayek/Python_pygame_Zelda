@@ -15,5 +15,11 @@ class MagicPlayer:
             self.animation_player.create_particles('aura',player.rect.center,groups)
             self.animation_player.create_particles('spark',player.rect.center+pygame.math.Vector2(0,-30),groups)
     
-    def flame(self):
-        pass
+    def flame(self,player,cost,groups):
+        if player.energy >= cost:
+            player.energy -= cost
+            
+        if player.stats.split('_')[0] == 'right': direction = pygame.math.Vector2(1,0)
+        elif player.stats.split('_')[0] == 'left': direction = pygame.math.Vector2(-1,0)
+        elif player.stats.split('_')[0] == 'up': direction = pygame.math.Vector2(0,-1)
+        else: direction = pygame.math.Vector2(0,1)
