@@ -5,8 +5,8 @@ class MagicPlayer:
     def __init__(self,animation_player):
         self.animation_player = animation_player
         
-    def heal(self):
-        pass
+    def heal(self,player,strength, cost, groups):
+        
     
     def flame(self):
         pass
