@@ -51,7 +51,6 @@ class AnimationPlayer:
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.frame_width = self.width / 6
-        init_pos = 0
         for init_factor in range(6):
             self.crop_rect = pygame.Rect(init_factor*self.frame_width, 0, self.frame_width, self.height)
             self.cropped_image = self.image.subsurface(self.crop_rect).copy()
@@ -60,7 +59,26 @@ class AnimationPlayer:
         ParticleEffect(pos,animation_frames,groups)
         
     def create_particles(self,animation_type,pos,groups):
-        animation_frames = self.frames[animation_type]
+        #self.animation_type = animation_type
+        animation_info = self.frames[animation_type]
+        animation_full_frame = animation_info['graphic']
+        animation_divisions = animation_info['divisions']
+        animation_frames = []
+        #animation_full_frame = choice(self.frames['leaf'])
+        self.image = pygame.image.load(animation_full_frame).convert_alpha()
+        self.original_size = self.image.get_size()
+        new_size = (self.original_size[0] * 4, self.original_size[1] * 4)
+        self.image = pygame.transform.scale(self.image, new_size)
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
+        self.frame_width = self.width / animation_divisions
+        for init_factor in range(animation_divisions):
+            self.crop_rect = pygame.Rect(init_factor*self.frame_width, 0, self.frame_width, self.height)
+            self.cropped_image = self.image.subsurface(self.crop_rect).copy()
+            self.rect = self.cropped_image.get_rect()
+            animation_frames.append(self.cropped_image)
+        
+        #animation_frames = self.frames[animation_type]
         ParticleEffect(pos,animation_frames,groups)
 
 class ParticleEffect(pygame.sprite.Sprite):
