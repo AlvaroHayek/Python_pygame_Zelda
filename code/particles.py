@@ -19,7 +19,7 @@ class AnimationPlayer:
             # monster deaths
             'axolot':{'graphic':'../graphics/NinjaAdventure/FX/Smoke/Smoke/SpriteSheet.png', 'divisions': 6},
             'raccoon':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Circle/SpriteSheetOrange.png', 'divisions': 4},
-            'Spirit':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png', 'divisions': 5},
+            'spirit':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png', 'divisions': 5},
             'bamboo':{'graphic':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheetB.png', 'divisions': 7},
             # leafs
             'leaf': (
