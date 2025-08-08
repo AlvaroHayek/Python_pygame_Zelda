@@ -11,16 +11,16 @@ class AnimationPlayer:
             'Spark':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png', # used to heal
             
             # attacks
-            'Claw':'../graphics/NinjaAdventure/FX/SlashFx/Claw/SpriteSheet.png',
-            'Slash':'../graphics/NinjaAdventure/FX/SlashFx/Slash/SpriteSheet.png',
-            'Cut':'../graphics/NinjaAdventure/FX/SlashFx/Cut/SpriteSheet.png',
-            'Plant':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheet.png',
-            'Thunder':'../graphics/NinjaAdventure/FX/Elemental/Thunder/SpriteSheet.png',
+            'Claw':{'graphic':'../graphics/NinjaAdventure/FX/SlashFx/Claw/SpriteSheet.png', 'divisions': 4},
+            'Slash':{'graphic':'../graphics/NinjaAdventure/FX/SlashFx/Slash/SpriteSheet.png', 'divisions': 4},
+            'Cut':{'graphic':'../graphics/NinjaAdventure/FX/SlashFx/Cut/SpriteSheet.png', 'divisions': 5},
+            'Plant':{'graphic':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheet.png', 'divisions': 8},
+            'Thunder':{'graphic':'../graphics/NinjaAdventure/FX/Elemental/Thunder/SpriteSheet.png', 'divisions': 8},
             # monster deaths
-            'axolot':'../graphics/NinjaAdventure/FX/Smoke/Smoke/SpriteSheet.png',
-            'raccoon':'../graphics/NinjaAdventure/FX/Magic/Circle/SpriteSheetOrange.png',
-            'Spirit':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png',
-            'bamboo':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheetB.png',
+            'axolot':{'graphic':'../graphics/NinjaAdventure/FX/Smoke/Smoke/SpriteSheet.png', 'divisions': 6},
+            'raccoon':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Circle/SpriteSheetOrange.png', 'divisions': 4},
+            'Spirit':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Spirit/SpriteSheetBlue.png', 'divisions': 5},
+            'bamboo':{'graphic':'../graphics/NinjaAdventure/FX/Elemental/Plant/SpriteSheetB.png', 'divisions': 7},
             # leafs
             'leaf': (
                 '../graphics/NinjaAdventure/FX/Particle/Leaf.png',
