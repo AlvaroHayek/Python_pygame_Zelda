@@ -11,6 +11,9 @@ class MagicPlayer:
             player.energy -= cost
             if player.health >= player.stats['health']:
                 player.health = player.stats['health']
+            offset = pygame.math.Vector2(0,1)
+            self.animation_player.create_particles('aura',player.rect.center,groups)
+            self.animation_player.create_particles('spark',player.rect.center+pygame.math.Vector2(0,-30),groups)
     
     def flame(self):
         pass
