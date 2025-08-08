@@ -207,6 +207,12 @@ class Player(Entity):
         weapon_damage = weapon_data[self.weapon]['damage']
         return base_damage + weapon_damage
     
+    def energy_recovery(self):
+        if self.energy <= self.stats['energy']:
+            self.energy += 1
+        else:
+            self.energy = self.stats['energy']
+        
     def update(self):
         self.input()
         self.cooldowns()
