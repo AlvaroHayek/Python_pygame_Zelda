@@ -6,9 +6,9 @@ class AnimationPlayer:
     def __init__(self):
         self.frames = {
             # magic
-            'Flame':'../graphics/NinjaAdventure/FX/Elemental/Flame/SpriteSheet.png',
-            'Aura':'../graphics/NinjaAdventure/FX/Magic/Aura/SpriteSheet.png',
-            'Spark':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png', # used to heal
+            'Flame':{'graphic':'../graphics/NinjaAdventure/FX/Elemental/Flame/SpriteSheet.png', 'divisions': 8},
+            'Aura':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Aura/SpriteSheet.png', 'divisions': 5},
+            'Spark':{'graphic':'../graphics/NinjaAdventure/FX/Magic/Spark/SpriteSheet.png', 'divisions': 9}, # used to heal
             
             # attacks
             'Claw':{'graphic':'../graphics/NinjaAdventure/FX/SlashFx/Claw/SpriteSheet.png', 'divisions': 4},
