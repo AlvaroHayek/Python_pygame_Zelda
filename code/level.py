@@ -16,6 +16,7 @@ class Level:
         
         # get the display surface
         self.display_surface = pygame.display.get_surface()
+        self.game_paused = False
         
         # sprite group setup
         self.visible_sprites = YSortCameraGroup()
@@ -106,6 +107,9 @@ class Level:
     
     def add_xp(self,amount):
         self.player.exp += amount
+        
+    def toggle_menu(self):
+        self.game_paused = not self.game_paused
     
     def run(self):
         # update and draw the game
