@@ -35,8 +35,7 @@ class Level:
         # particles
         self.animation_player = AnimationPlayer()
         self.magic_player = MagicPlayer(self.animation_player)
-        
-        
+              
     def create_map(self):
         tile_save_path = "../graphics/NinjaAdventure/Backgrounds/ZeldaTiles/Rock_cropped.png"
         player_save_path = "../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png"
@@ -104,6 +103,8 @@ class Level:
     
     def trigger_death_particles(self,pos,particle_type):
         self.animation_player.create_particles(particle_type,pos,self.visible_sprites)     
+    
+    def add_xp(self,amount):
     
     def run(self):
         # update and draw the game
