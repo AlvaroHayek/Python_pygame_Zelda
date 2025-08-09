@@ -58,10 +58,10 @@ class Level:
                                          self.create_attack, self.destroy_attack, self.create_magic,
                                          (0,0,64,64), player_save_path, nuptimes)
                     nuptimes = 0
-                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles)
-                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles)
-                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles)
-                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles)
+                if col == 'ea': Enemy('axolot',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles,self.add_xp)
+                if col == 'er': Enemy('raccoon',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles,self.add_xp)
+                if col == 'es': Enemy('spirit',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles,self.add_xp)
+                if col == 'eb': Enemy('bamboo',(x,y),[self.visible_sprites, self.attackable_sprites], self.obstacle_sprites, self.damage_player,self.trigger_death_particles,self.add_xp)
                              
     def create_attack(self):
         self.current_attack = Weapon(self.player,[self.visible_sprites, self.attack_sprites])
@@ -105,6 +105,7 @@ class Level:
         self.animation_player.create_particles(particle_type,pos,self.visible_sprites)     
     
     def add_xp(self,amount):
+        self.player.exp += amount
     
     def run(self):
         # update and draw the game
