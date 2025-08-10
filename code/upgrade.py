@@ -7,6 +7,17 @@ class Upgrade:
         # general setup
         self.display_surface = pygame.display.get_surface()
         self.player = player
+        self.attribute_nr = len(player.stats)
+    
+    def input(self):
+        keys = pygame.key.get_pressed()
         
+        if keys[pygame.K_RIGHT]:
+            pass
+        elif keys[pygame.K_LEFT]:
+            pass
+        if keys[pygame.K_SPACE]:
+            pass
+    
     def display(self):
         self.display_surface.fill('black')
