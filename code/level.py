@@ -112,6 +112,10 @@ class Level:
         self.game_paused = not self.game_paused
     
     def run(self):
+        if game_paused:
+            # display upgrade menu
+        else:
+            # run the game
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
