@@ -112,17 +112,19 @@ class Level:
         self.game_paused = not self.game_paused
     
     def run(self):
-        if game_paused:
+        self.visible_sprites.custom_draw(self.player)
+        self.ui.display(self.player)
+        if self.game_paused:
+            pass
             # display upgrade menu
         else:
+            self.visible_sprites.update()
+            self.visible_sprites.enemy_update(self.player)
+            self.player_attack_logic()
             # run the game
-        # update and draw the game
-        self.visible_sprites.custom_draw(self.player)
-        self.visible_sprites.update()
-        #debug(self.player.status)
-        self.visible_sprites.enemy_update(self.player)
-        self.player_attack_logic()
-        self.ui.display(self.player)
+            
+        
+        
         
 class YSortCameraGroup(pygame.sprite.Group):
     def __init__(self):
