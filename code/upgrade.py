@@ -47,10 +47,12 @@ class Upgrade:
     
     def create_items(self):
         self.item_list = []
-        for item in range(self.attribute_nr):
+        
+        for item, index in enumerate(range(self.attribute_nr)):
             # horizontal position
             full_width = self.display_surface.get_size()[0]
-            increment -
+            increment = full_width // self.attribute_nr
+            left = (item * increment) + (increment - self.width) // 2
             
             # vertical position
             top = self.display_surface.get_size()[1] * 0.1
@@ -65,4 +67,9 @@ class Upgrade:
         
 class Item:
     def __init__(self,l,t,w,h,index,font):
-        pass
+        self.rect = pygame.Rect(l,t,w,h)
+        self.index = index
+        self.font = font
+        
+    def display(self,surface,selection_num,name,value,max_value,cost):
+        pygame.draw.rect()
