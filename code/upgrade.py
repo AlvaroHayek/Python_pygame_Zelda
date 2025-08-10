@@ -8,6 +8,13 @@ class Upgrade:
         self.display_surface = pygame.display.get_surface()
         self.player = player
         self.attribute_nr = len(player.stats)
+        self.attribute_names = list(player.stats.keys())
+        self.font = pygame.font.Font(UI_FONT, UI_FONT_SIZE)
+        
+        # selection system
+        self.selection_index = 0
+        self.selection_time = None
+        self.can_move = True
     
     def input(self):
         keys = pygame.key.get_pressed()
