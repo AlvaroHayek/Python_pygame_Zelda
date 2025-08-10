@@ -96,6 +96,16 @@ class Item:
         surface.blit(title_surf,title_rect)
         surface.blit(cost_surf,cost_rect)
     
+    def display_bar(self,surface,value,max_value,selected):
+        
+        # drawing setup
+        top = self.rect.midtop + pygame.math.Vector2(0,60)
+        bottom = self.rect.midbottom - pygame.math.Vector2(0,60)
+        color = BAR_COLOR_SELECTED if selected else BAR_COLOR
+        
+        # draw elements
+        pygame.draw.line(surface,color,top,bottom,5)
+    
     def display(self,surface,selection_num,name,value,max_value,cost):
         if self.index == selection_num:
             pygame.draw.rect(surface, UPGRADE_BG_COLOR_SELECTED, self.rect)
@@ -105,3 +115,4 @@ class Item:
             pygame.draw.rect(surface, UI_BORDER_COLOR, self.rect,4)
             
         self.display_names(surface,name,cost,self.index == selection_num)
+        self.display_bar(surface,value,max_value,self.index == selection_num)
