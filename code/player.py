@@ -26,7 +26,7 @@ class Player(Entity):
         
         self.image = pygame.image.load('../graphics/NinjaAdventure/Actor/Characters/Knight/down_idle.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
-        self.hitbox = self.rect.inflate(0,-26)
+        self.hitbox = self.rect.inflate(-6,HITBOX_OFFSET['player'])
         
         # graphics setup
         self.import_player_assets()
