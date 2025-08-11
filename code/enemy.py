@@ -51,6 +51,12 @@ class Enemy(Entity):
         self.hit_time = None
         self.invincibility_duration = 300
         
+        # sounds
+        self.death_sound = pygame.mixer.Sound('../graphics/NinjaAdventure/Audio/Sounds/Alert/Alert6.wav')
+        self.hit_sound = pygame.mixer.Sound('../graphics/NinjaAdventure/Audio/Sounds/Hit & Impact/Hit1.wav')
+        self.death_sound.set_volume(0.2)
+        self.hit_sound.set_volume(0.2)
+        
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
         enemy_path = f'../graphics/NinjaAdventure/Actor/Monsters/{name}/'
@@ -138,6 +144,7 @@ class Enemy(Entity):
     
     def get_damage(self, player, attack_type):
         if self.vulnerable:
+            self.hit_sound.play()
             self.direction = self.get_player_distance_direction(player)[1]
             if attack_type == 'weapon':
                 self.health -= player.get_full_weapon_damage()
@@ -151,6 +158,7 @@ class Enemy(Entity):
             self.kill()
             self.trigger_death_particles(self.rect.center,self.monster_name)
             self.add_exp(self.exp)
+            self.death_sound.play()
             
     def hit_reaction(self):
         if not self.vulnerable:
