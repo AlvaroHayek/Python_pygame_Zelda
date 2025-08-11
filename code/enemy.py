@@ -54,8 +54,10 @@ class Enemy(Entity):
         # sounds
         self.death_sound = pygame.mixer.Sound('../graphics/NinjaAdventure/Audio/Sounds/Alert/Alert6.wav')
         self.hit_sound = pygame.mixer.Sound('../graphics/NinjaAdventure/Audio/Sounds/Hit & Impact/Hit1.wav')
+        self.attack_sound = pygame.mixer.Sound(monster_info['attack_sound'])
         self.death_sound.set_volume(0.2)
         self.hit_sound.set_volume(0.2)
+        self.attack_sound.set_volume(0.3)
         
     def import_graphics(self,name):
         self.animations = {'idle':[],'move':[],'attack':[]}
@@ -92,6 +94,7 @@ class Enemy(Entity):
         if self.status == 'attack':
             self.attack_time = pygame.time.get_ticks()
             self.damage_player(self.attack_damage, self.attack_type)
+            self.attack_sound.play()
         elif self.status == 'move':
             self.direction = self.get_player_distance_direction(player)[1]
         else:

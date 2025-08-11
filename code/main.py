@@ -12,6 +12,8 @@ class Game:
         self.clock = pygame.time.Clock()
         self.level = Level()
         
+        # sound
+        
     def run(self):
         while True:
             for event in pygame.event.get():
