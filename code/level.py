@@ -125,9 +125,6 @@ class Level:
             self.player_attack_logic()
             # run the game
             
-        
-        
-        
 class YSortCameraGroup(pygame.sprite.Group):
     def __init__(self):
         # general setup
