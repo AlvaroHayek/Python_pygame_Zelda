@@ -11,6 +11,11 @@ class Game:
         pygame.display.set_caption('Zelda like game')
         self.clock = pygame.time.Clock()
         self.level = Level()
+        
+        # mouse setup
+        mouse_icon = pygame.image.load("../graphics/NinjaAdventure/Ui/mouse_icon.png")
+        mouse_icon = pygame.transform.scale(0.2,0.2)
+        pygame.mouse.set_cursor(0.2, 0.2, mouse_icon)
         pygame.mouse.set_visible(False)
         
         # sound
@@ -31,7 +36,8 @@ class Game:
                             pygame.mouse.set_visible(True)
                         else:
                             pygame.mouse.set_visible(False)
-                    
+            
+            mouse_pos = pygame.mouse.get_pos()
             self.screen.fill(WATER_COLOR)
             self.level.run()
             pygame.display.update()
