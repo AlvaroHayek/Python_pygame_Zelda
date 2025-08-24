@@ -11,6 +11,7 @@ class Game:
         pygame.display.set_caption('Zelda like game')
         self.clock = pygame.time.Clock()
         self.level = Level()
+        pygame.mouse.set_visible(False)
         
         # sound
         main_sound = pygame.mixer.Sound('../graphics/NinjaAdventure/Audio/Sounds/Ambient/Wind.wav')
@@ -25,6 +26,11 @@ class Game:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_m:
                         self.level.toggle_menu()
+                        print(pygame.mouse.get_visible())
+                        if pygame.mouse.get_visible() == False:
+                            pygame.mouse.set_visible(True)
+                        else:
+                            pygame.mouse.set_visible(False)
                     
             self.screen.fill(WATER_COLOR)
             self.level.run()
