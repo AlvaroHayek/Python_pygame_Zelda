@@ -13,9 +13,13 @@ class Game:
         self.level = Level()
         
         # mouse setup
-        mouse_icon = pygame.image.load("../graphics/NinjaAdventure/Ui/mouse_icon.png")
-        mouse_icon = pygame.transform.scale(0.2,0.2)
-        pygame.mouse.set_cursor(0.2, 0.2, mouse_icon)
+        mouse_icon = pygame.image.load("../graphics/NinjaAdventure/Ui/mouse_icon.png").convert_alpha()
+        new_mouse_size = (32,32)
+        mouse_hotspot = (new_mouse_size[0]//2,new_mouse_size[1]//2)
+        resized_mouse_icon = pygame.transform.scale(mouse_icon, new_mouse_size)
+        #mouse_pos = pygame.mouse.get_pos()
+        mouse_cursor = pygame.cursors.Cursor(mouse_hotspot,resized_mouse_icon)
+        pygame.mouse.set_cursor(mouse_cursor)
         pygame.mouse.set_visible(False)
         
         # sound
@@ -31,13 +35,11 @@ class Game:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_m:
                         self.level.toggle_menu()
-                        print(pygame.mouse.get_visible())
                         if pygame.mouse.get_visible() == False:
                             pygame.mouse.set_visible(True)
                         else:
                             pygame.mouse.set_visible(False)
             
-            mouse_pos = pygame.mouse.get_pos()
             self.screen.fill(WATER_COLOR)
             self.level.run()
             pygame.display.update()
