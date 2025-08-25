@@ -17,7 +17,6 @@ class Game:
         new_mouse_size = (32,32)
         mouse_hotspot = (new_mouse_size[0]//2,new_mouse_size[1]//2)
         resized_mouse_icon = pygame.transform.scale(mouse_icon, new_mouse_size)
-        #mouse_pos = pygame.mouse.get_pos()
         mouse_cursor = pygame.cursors.Cursor(mouse_hotspot,resized_mouse_icon)
         pygame.mouse.set_cursor(mouse_cursor)
         pygame.mouse.set_visible(False)
